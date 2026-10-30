@@ -125,14 +125,14 @@ const focusAreas = [
     desc: 'Building responsive, accessible web applications with React, TypeScript, Node.js, and modern styling libraries.',
   },
   {
-    role: 'Backend & Systems Exploration',
+    role: 'Backend & Systems Engineering',
     period: 'Present',
-    desc: 'Designing REST APIs with Node.js and Spring Boot, real-time WebSocket communication, database schemas, and exploring distributed system concepts.',
+    desc: 'Designing RESTful APIs with Spring Boot and Node.js, managing PostgreSQL databases, and implementing clean software architectures.',
   },
   {
-    role: 'Visual Storytelling & Digital Media',
+    role: 'Data Structures & Problem Solving',
     period: 'Ongoing',
-    desc: 'Filmmaking, cinematic camera work, video editing, color grading, and exploring the intersection of creative media with web design.',
+    desc: 'Practicing algorithmic problem solving, time-space complexity optimization, and computer science fundamentals.',
   },
 ];
 
@@ -165,8 +165,8 @@ export const About = () => {
           <span className="font-serif italic font-normal text-zinc-400">solving problems.</span>
         </h1>
         <p className="mt-6 text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
-          I'm Anshuman Palai — a software engineer and Computer Science student at Chandigarh University,
-          passionate about crafting clean web applications and digital media.
+          I'm Anshuman Palai — a software engineer and CSE student at Chandigarh University,
+          passionate about crafting clean web applications and dependable software systems.
         </p>
       </section>
 
