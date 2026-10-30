@@ -1,5 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#09090b"/>
-  <path d="M18 47 29 17h6l11 30h-6.4l-2.2-6.4H26.6L24.4 47H18Zm10.5-11.7h7L32 25.1l-3.5 10.2Z" fill="#f4f4f5"/>
-  <circle cx="47" cy="17" r="3" fill="#a1a1aa"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="ap-grad" x1="14" y1="14" x2="52" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E4E4E7"/>
+    </linearGradient>
+    <linearGradient id="ap-rim" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.28)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark container with subtle specular rim -->
+  <rect width="64" height="64" rx="16" fill="#09090B"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="15.25" stroke="url(#ap-rim)" stroke-width="1.5"/>
+
+  <!-- Stylized AP Monogram -->
+  <g fill="url(#ap-grad)" fill-rule="evenodd" clip-rule="evenodd">
+    <!-- Left leg of A -->
+    <path d="M32 15L13.5 49H19.5L34.5 21L32 15Z"/>
+    <!-- Crossbar of A -->
+    <rect x="21" y="34" width="12" height="5" rx="1"/>
+    <!-- Central Stem of P and right side of A -->
+    <rect x="30.5" y="15" width="5" height="34" rx="1.5"/>
+    <!-- Bowl of P with inner cutout -->
+    <path d="M33 15H44.5C50.5 15 54 18.5 54 24C54 29.5 50.5 33 44.5 33H33V15ZM35.5 20V28H44C47.2 28 48.8 26.5 48.8 24C48.8 21.5 47.2 20 44 20H35.5Z"/>
+  </g>
 </svg>
