@@ -111,7 +111,7 @@ const education = [
   {
     institution: 'Chandigarh University',
     degree: 'Bachelor of Engineering — Computer Science & Engineering',
-    period: '2022 — 2026',
+    period: '2024 — 2028',
     location: 'Punjab, India',
     details:
       'Core focus on Computer Systems, Data Structures & Algorithms, Database Systems, Web Architectures, and Software Engineering.',
