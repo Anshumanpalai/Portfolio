@@ -90,7 +90,7 @@ export const Home = () => {
               transition={{ duration: 0.7, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="text-sm sm:text-base text-zinc-300 font-normal">
-                Software Engineer & CS Student at Chandigarh University.
+                Software Engineer & CSE Student at Chandigarh University.
               </p>
               <p className="text-xs sm:text-sm text-zinc-500">
                 Based in Chandigarh, India.
