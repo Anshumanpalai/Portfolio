@@ -58,3 +58,4 @@ vercel
 - **Smooth Scroll**: Lenis
 - **Routing**: React Router v6
 - **Live Stats API**: Vercel Serverless Function (`api/coding-profiles.js`)
+
