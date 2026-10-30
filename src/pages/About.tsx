@@ -180,17 +180,16 @@ export const About = () => {
           </div>
           <div className="lg:col-span-8 space-y-6 text-base md:text-lg text-zinc-300 leading-relaxed">
             <p>
-              I am an engineering student driven by curiosity for how things work beneath the surface.
-              My work centers around modern web technologies, building performant full-stack tools,
-              and creating interfaces that feel intuitive and responsive.
+              I build things for the web, with a focus on clean interfaces, thoughtful functionality, and solving real problems through code.
             </p>
             <p>
-              Alongside engineering, I have a deep passion for cinema and digital filmmaking.
-              I treat software craftsmanship the same way I treat visual storytelling: prioritizing structure,
-              pacing, clarity, and intentional simplicity.
+              From crafting responsive frontend experiences with React to developing backend systems with Java and Spring Boot, I enjoy understanding the complete journey of an idea, from concept to implementation.
+            </p>
+            <p>
+              Currently exploring full-stack engineering, sharpening my problem-solving skills, and building projects that reflect my approach to software development.
             </p>
             <p className="text-sm text-zinc-500">
-              Currently open to software engineering internships, collaborative open-source projects, and full-stack opportunities.
+              Open to software engineering internships and meaningful collaborations.
             </p>
           </div>
         </div>
