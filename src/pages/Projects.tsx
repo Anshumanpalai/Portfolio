@@ -46,7 +46,7 @@ export const Projects = () => {
                 <div>
                   <div className="flex items-start justify-between gap-5">
                     <div><h2 className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-white">{project.title}</h2><p className="mt-2 max-w-2xl text-sm sm:text-base leading-relaxed text-zinc-400"><span className="font-medium text-zinc-200">{project.year}</span> — {project.description}</p></div>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} source`} className="text-3xl sm:text-4xl font-light text-zinc-300 transition-all duration-300 ease-out hover:translate-x-1.5 hover:-translate-y-0.5 hover:text-white">↗</a>
+                    <a href={project.live || project.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} live application`} className="text-3xl sm:text-4xl font-light text-zinc-300 transition-all duration-300 ease-out hover:translate-x-1.5 hover:-translate-y-0.5 hover:text-white" title={project.live ? "Live Preview" : "View Source"}>↗</a>
                   </div>
                   <ul className="mt-5 space-y-2 text-sm text-zinc-300">
                     {project.highlights.map((highlight) => <li key={highlight} className="flex gap-2"><span className="text-indigo-300">✦</span>{highlight}</li>)}
@@ -54,9 +54,16 @@ export const Projects = () => {
                   <div className="mt-6 flex flex-wrap gap-2">
                     {project.stack.map((item) => <span key={item} className="rounded-full border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-[11px] text-zinc-400">{item}</span>)}
                   </div>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-zinc-200 transition-colors hover:text-white">
-                    View source <span aria-hidden="true">↗</span>
-                  </a>
+                  <div className="mt-6 flex items-center gap-5">
+                    {project.live && (
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-400 transition-colors hover:text-indigo-300">
+                        Live Preview <span aria-hidden="true">↗</span>
+                      </a>
+                    )}
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 transition-colors hover:text-white">
+                      Source Code <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
                 </div>
                 <div className="mt-7 sm:mt-10"><ProjectMockup type={project.mockup} /></div>
               </div>

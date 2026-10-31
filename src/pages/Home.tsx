@@ -132,16 +132,27 @@ export const Home = () => {
                 Portfolio
               </span>
               <h2 className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-white mt-1">
-                Projects in Progress
+                Featured Projects
               </h2>
             </div>
-            <Link
-              to="/projects"
-              className="text-xs sm:text-sm text-zinc-400 hover:text-white transition-colors group flex items-center gap-1 font-mono"
-            >
-              <span>View details</span>
-              <span className="group-hover:translate-x-0.5 transition-transform">→</span>
-            </Link>
+            <div className="flex items-center gap-4">
+              <a
+                href={PROJECTS[0]?.live || 'https://careerpilot-ai-psi-eight.vercel.app'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs sm:text-sm text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1 font-mono font-medium"
+              >
+                <span>Live App</span>
+                <span>↗</span>
+              </a>
+              <Link
+                to="/projects"
+                className="text-xs sm:text-sm text-zinc-400 hover:text-white transition-colors group flex items-center gap-1 font-mono"
+              >
+                <span>View details</span>
+                <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+              </Link>
+            </div>
           </motion.div>
 
           {PROJECTS.slice(0, 1).map((project) => (

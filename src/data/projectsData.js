@@ -12,6 +12,7 @@ export const PROJECTS = [
     ],
     stack: ['React', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS'],
     github: 'https://github.com/Anshumanpalai/careerpilot-ai',
+    live: 'https://careerpilot-ai-psi-eight.vercel.app',
     mockup: 'careerpilot',
   },
 ];
