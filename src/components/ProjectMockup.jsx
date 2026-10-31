@@ -6,6 +6,18 @@ import { motion } from 'framer-motion';
  * inspired by high-end design & engineering portfolios like Perry Wang's.
  */
 export const ProjectMockup = ({ type }) => {
+  if (type === 'arc-and-form') {
+    return (
+      <div className="w-full overflow-hidden rounded-xl border border-white/20 bg-white shadow-[0_20px_50px_rgba(0,0,0,.35)] transition-all duration-500 ease-out group-hover:border-white/50 group-hover:shadow-[0_28px_65px_-12px_rgba(0,0,0,0.55)] group-hover:-translate-y-1.5">
+        <img
+          src="/arc-and-form.jpg"
+          alt="ARC & FORM Minimalist Architectural Luxury E-Commerce Storefront"
+          className="block w-full aspect-video object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+        />
+      </div>
+    );
+  }
+
   if (type === 'careerpilot') {
     return (
       <div className="w-full overflow-hidden rounded-xl border border-white/20 bg-white shadow-[0_20px_50px_rgba(0,0,0,.35)] transition-all duration-500 ease-out group-hover:border-white/50 group-hover:shadow-[0_28px_65px_-12px_rgba(0,0,0,0.55)] group-hover:-translate-y-1.5">
