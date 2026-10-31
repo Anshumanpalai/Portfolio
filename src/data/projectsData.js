@@ -7,10 +7,10 @@ export const PROJECTS = [
       'A production-grade luxury apparel storefront inspired by architectural minimalism, engineered with server-side price authority, atomic inventory controls, and Stripe Checkout.',
     highlights: [
       'Server-side price authority & atomic conditional stock decrements preventing overselling',
-      'Cryptographically verified Stripe webhooks with an idempotency ledger table',
-      'Stateless JWT session cookies (HttpOnly, SameSite) guarded by Bucket4j rate limiting',
+      'Cryptographically verified Stripe webhooks with a permanent idempotency ledger',
+      'Stateless JWT session cookies (HttpOnly, SameSite) guarded by strict rate limiting',
     ],
-    stack: ['React', 'Spring Boot', 'Java 21', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
+    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'Stripe', 'Tailwind CSS'],
     github: 'https://github.com/anshumanpalai/arc-and-form',
     live: 'https://arc-and-form.vercel.app',
     mockup: 'arc-and-form',
