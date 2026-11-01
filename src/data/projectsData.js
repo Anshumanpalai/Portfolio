@@ -12,7 +12,7 @@ export const PROJECTS = [
     ],
     stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'Stripe', 'Tailwind CSS'],
     github: 'https://github.com/anshumanpalai/arc-and-form',
-    live: 'https://arc-and-form.vercel.app',
+    live: 'https://arc-and-form-eight.vercel.app',
     mockup: 'arc-and-form',
   },
   {

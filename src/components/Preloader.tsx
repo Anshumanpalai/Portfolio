@@ -199,3 +199,4 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
 };
 
 export default Preloader;
+
