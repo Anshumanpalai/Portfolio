@@ -37,9 +37,9 @@ export const Home = () => {
       <div aria-hidden="true" className="hero-page-bloom" />
 
       {/* Hero Section — Dual-Layer Window Architecture (Perry Wang 2023) */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-12 pt-28 pb-10">
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-12 pt-28 pb-12">
         <motion.div
-          className="container-hero-image relative max-w-[1240px] w-full mx-auto"
+          className="container-hero-image relative max-w-[1180px] xl:max-w-[1240px] w-full mx-auto"
           initial={{ opacity: 0, y: 34, scale: 0.985 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -47,51 +47,56 @@ export const Home = () => {
           {/* Specular hairline top glare */}
           <div className="glare-item-top outer-edge" />
 
-          {/* Outer Window Frame */}
+          {/* Outer Window Frame with double-layer border */}
           <div className="window-outline">
             <div className="glare-item-top inner-edge" />
             
             {/* Inner Window Main */}
             <div className="window-main">
-              {/* Window Bar Header */}
+              {/* Window Bar Header / Toolbar */}
               <div className="window-bar">
-                <div className="relative flex items-center gap-2.5 group/dots cursor-pointer">
-                  <span className="window-control window-control-close w-3.5 h-3.5 rounded-full border border-black/20" title="Close" />
-                  <span className="window-control window-control-minimize w-3.5 h-3.5 rounded-full border border-black/20" title="Minimize" />
-                  <span className="window-control window-control-expand w-3.5 h-3.5 rounded-full border border-black/20" title="Expand" />
+                {/* Three circular window controls on left */}
+                <div className="relative flex items-center gap-2 sm:gap-2.5 group/dots cursor-pointer">
+                  <span className="window-control window-control-close w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full border border-black/20" title="Close" />
+                  <span className="window-control window-control-minimize w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full border border-black/20" title="Minimize" />
+                  <span className="window-control window-control-expand w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full border border-black/20" title="Expand" />
                 </div>
-                <div className="text-zinc-500 hover:text-zinc-300 transition-colors cursor-default pr-1 flex items-center justify-center select-none">
+
+                {/* Subtle plus (+) icon on the right */}
+                <div className="text-zinc-500 hover:text-zinc-300 transition-colors cursor-default pr-1 flex items-center justify-center select-none" title="New Tab">
                   <svg className="w-4 h-4 stroke-current stroke-[1.75]" viewBox="0 0 16 16" fill="none">
                     <path d="M8 3.5V12.5M3.5 8H12.5" strokeLinecap="round" />
                   </svg>
                 </div>
               </div>
 
-              {/* Window Content — Expansive height with original text */}
-              <div className="window-content relative isolate px-8 sm:px-14 md:px-20 lg:px-24 py-20 sm:py-28 md:py-36 min-h-[560px] sm:min-h-[620px] md:min-h-[680px] flex flex-col justify-between bg-[#101010b3]">
+              {/* Window Content */}
+              <div className="window-content relative isolate px-8 sm:px-14 md:px-20 lg:px-24 pt-16 sm:pt-20 md:pt-24 pb-20 sm:pb-24 min-h-[560px] sm:min-h-[620px] md:min-h-[660px] flex flex-col justify-between bg-[#101010]">
+                {/* Soft ambient radial lighting behind heading */}
                 <div aria-hidden="true" className="hero-spotlight" />
                 <div aria-hidden="true" className="hero-orb hero-orb-one" />
                 <div aria-hidden="true" className="hero-orb hero-orb-two" />
 
+                {/* Hero Typography — large lightweight modern sans-serif */}
                 <motion.h1
-                  className="hero-title relative z-10 text-5xl sm:text-7xl md:text-8xl lg:text-[6.25rem] xl:text-[7.25rem] font-display font-bold tracking-tighter leading-[0.96] text-white"
+                  className="text-hero-heading relative z-10 text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] xl:text-[6.5rem] font-sans font-normal tracking-[-0.035em] leading-[0.92] text-[#f2f2f2]"
                   variants={riseIn}
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 0.8, delay: 0.23, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  Full-Stack Developer
+                  I craft products,
                   <br />
-                  &amp;{' '}
-                  <span className="hero-italic font-serif italic font-normal bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
-                    problem solver.
+                  interactions &amp;{' '}
+                  <span className="hero-serif-italic">
+                    stories.
                   </span>
                 </motion.h1>
 
-                {/* Right-aligned authentic bio */}
-                <div className="hero-about-grid relative z-10 grid grid-cols-1 sm:grid-cols-2 items-end mt-20 sm:mt-28 md:mt-36">
+                {/* Supporting Information — lower-right */}
+                <div className="hero-about-grid relative z-10 grid grid-cols-1 sm:grid-cols-2 items-end mt-16 sm:mt-24 md:mt-32">
                   <div className="hidden sm:block" />
-                  <div className="text-right space-y-1.5">
+                  <div className="text-right space-y-1">
                     <p className="text-base sm:text-lg md:text-xl text-[#f2f2f2] font-medium leading-relaxed font-sans">
                       Software Engineer &amp; CSE Student at Chandigarh University.
                     </p>
@@ -100,24 +105,24 @@ export const Home = () => {
                     </p>
                   </div>
                 </div>
+
+                {/* Minimal downward arrow near bottom-center of the browser window */}
+                <motion.div
+                  className="absolute bottom-5 sm:bottom-6 md:bottom-7 left-1/2 -translate-x-1/2 z-10 flex justify-center"
+                  animate={{ y: [0, 5, 0] }}
+                  transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+                >
+                  <a
+                    href="#work"
+                    aria-label="Scroll to projects"
+                    className="text-zinc-600 hover:text-zinc-400 transition-colors text-xl sm:text-2xl font-light select-none cursor-pointer"
+                  >
+                    ↓
+                  </a>
+                </motion.div>
               </div>
             </div>
           </div>
-        </motion.div>
-
-        {/* Centered animated down arrow outside the window scrolling to projects */}
-        <motion.div
-          className="relative z-10 mt-12 sm:mt-16 flex justify-center"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-        >
-          <a
-            href="#work"
-            aria-label="Scroll to projects"
-            className="text-zinc-600 hover:text-zinc-400 transition-colors text-2xl font-light"
-          >
-            ↓
-          </a>
         </motion.div>
       </section>
 
