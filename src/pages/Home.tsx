@@ -158,60 +158,100 @@ export const Home = () => {
               </h2>
             </div>
             <div className="flex items-center gap-4">
-              <a
-                href={PROJECTS[0]?.live || 'https://careerpilot-ai-psi-eight.vercel.app'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs sm:text-sm text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1 font-mono font-medium"
-              >
-                <span>Live App</span>
-                <span>↗</span>
-              </a>
               <Link
                 to="/projects"
                 className="text-xs sm:text-sm text-zinc-400 hover:text-white transition-colors group flex items-center gap-1 font-mono"
               >
-                <span>View details</span>
+                <span>View all details</span>
                 <span className="group-hover:translate-x-0.5 transition-transform">→</span>
               </Link>
             </div>
           </motion.div>
 
-          {PROJECTS.slice(0, 1).map((project) => (
-            <motion.div
-              key={project.title}
-              variants={riseIn}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            >
-            <Link to="/projects" className="glass-surface project-card-interactive group block overflow-hidden rounded-2xl p-3 sm:p-5 shadow-[0_24px_70px_rgba(0,0,0,.35)] cursor-pointer">
-              <div className="relative overflow-hidden rounded-xl px-5 pt-6 sm:px-8 sm:pt-9 bg-[radial-gradient(ellipse_at_65%_0%,rgba(129,140,248,.30),transparent_52%),linear-gradient(135deg,#151720,#101115)]">
-                {/* Background aurora bloom on hover */}
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100 bg-[radial-gradient(ellipse_at_70%_0%,rgba(196,181,253,.22),transparent_55%)] pointer-events-none" />
-                
-                <div className="relative flex items-start justify-between gap-5">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-white group-hover:text-white transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-sm sm:text-base text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">
-                      <span className="font-medium text-zinc-200">{project.year}</span> — {project.description}
-                    </p>
+          <div className="space-y-10 sm:space-y-14">
+            {PROJECTS.map((project) => (
+              <motion.div
+                key={project.title}
+                variants={riseIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="group relative rounded-2xl sm:rounded-3xl md:rounded-[28px] border border-zinc-800 bg-[#161619] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
+                  {/* Top Header matching reference image */}
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-display font-semibold tracking-tight text-white group-hover:text-zinc-100 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="mt-1.5 text-xs sm:text-sm text-zinc-400 font-sans">
+                        <span className="text-zinc-300 font-medium">{project.category || 'Web App'}</span>, '{project.year ? project.year.slice(2) : '26'} — {project.subtitle || project.description}
+                      </p>
+                    </div>
+                    <a
+                      href={project.live || project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl sm:text-3xl font-light text-zinc-400 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 inline-block"
+                      aria-label={`Open ${project.title}`}
+                      title={project.live ? "Open Live App" : "View Code"}
+                    >
+                      →
+                    </a>
                   </div>
-                  <span className="mt-0.5 text-3xl sm:text-4xl font-light text-zinc-300 transition-all duration-300 ease-out group-hover:translate-x-2 group-hover:-translate-y-0.5 group-hover:text-white inline-block">
-                    →
-                  </span>
+
+                  {/* Browser Mockup interface */}
+                  <div className="mt-6 sm:mt-8">
+                    <a
+                      href={project.live || project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block cursor-pointer"
+                    >
+                      <ProjectMockup type={project.mockup} />
+                    </a>
+                  </div>
+
+                  {/* Bottom details: tech stack & quick links */}
+                  <div className="mt-6 pt-5 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.stack.slice(0, 6).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-400"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-4 text-xs font-mono">
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1 font-medium"
+                        >
+                          <span>Live App</span>
+                          <span>↗</span>
+                        </a>
+                      )}
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1"
+                      >
+                        <span>GitHub</span>
+                        <span>↗</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                
-                <div className="relative mt-7 sm:mt-10 transition-transform duration-500 ease-out group-hover:-translate-y-1">
-                  <ProjectMockup type={project.mockup} />
-                </div>
-              </div>
-            </Link>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
