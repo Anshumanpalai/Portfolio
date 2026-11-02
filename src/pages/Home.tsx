@@ -36,87 +36,72 @@ export const Home = () => {
       {/* Ambient bloom — kept outside the window so it softly lifts the page. */}
       <div aria-hidden="true" className="hero-page-bloom" />
 
-      {/* Hero Section — Iconic macOS / Browser Window */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-28 pb-12">
+      {/* Hero Section — Dual-Layer Window Architecture (Perry Wang 2023) */}
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-28 pb-10">
         <motion.div
-          className="hero-window relative max-w-5xl w-full mx-auto rounded-2xl border border-white/25 bg-[#09090b] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.95)] overflow-hidden"
+          className="container-hero-image relative max-w-5xl w-full mx-auto"
           initial={{ opacity: 0, y: 34, scale: 0.985 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          
-          {/* Top Bar — Sleek macOS Window Bezel with Specular Glow */}
-          <div className="relative h-11 flex items-center px-4 bg-[linear-gradient(105deg,rgba(69,70,76,.95),rgba(195,195,198,.86)_30%,rgba(111,112,118,.88)_67%,rgba(57,58,63,.93))] border-b border-white/20">
-            {/* Top specular reflection edge with subtle white/silver glow */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-white/30 via-white/40 to-white/10 pointer-events-none" />
-            <div className="absolute top-0 left-6 w-36 h-[2px] bg-white/40 blur-[1px] pointer-events-none" />
+          {/* Specular hairline top glare */}
+          <div className="glare-item-top outer-edge" />
 
-            {/* Ambient colored glow reflection behind the controls */}
-            <div 
-              aria-hidden="true" 
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-28 h-7 bg-gradient-to-r from-red-500/35 via-amber-500/25 to-emerald-500/25 blur-md pointer-events-none rounded-full" 
-            />
+          {/* Outer Window Frame */}
+          <div className="window-outline">
+            <div className="glare-item-top inner-edge" />
+            
+            {/* Inner Window Main */}
+            <div className="window-main">
+              {/* Window Bar Header */}
+              <div className="window-bar">
+                <div className="relative flex items-center gap-2 group/dots cursor-pointer">
+                  <span className="window-control window-control-close w-3 h-3 rounded-full border border-black/20" title="Close" />
+                  <span className="window-control window-control-minimize w-3 h-3 rounded-full border border-black/20" title="Minimize" />
+                  <span className="window-control window-control-expand w-3 h-3 rounded-full border border-black/20" title="Expand" />
+                </div>
+                <div className="text-zinc-500 hover:text-zinc-300 transition-colors cursor-default pr-1 flex items-center justify-center select-none">
+                  <svg className="w-4 h-4 stroke-current stroke-[1.75]" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 3.5V12.5M3.5 8H12.5" strokeLinecap="round" />
+                  </svg>
+                </div>
+              </div>
 
-            {/* macOS traffic light controls with vivid neon glow */}
-            <div className="relative flex items-center gap-2 group/dots cursor-pointer">
-              <span className="window-control window-control-close w-3 h-3 rounded-full border border-black/20" title="Close" />
-              <span className="window-control window-control-minimize w-3 h-3 rounded-full border border-black/20" title="Minimize" />
-              <span className="window-control window-control-expand w-3 h-3 rounded-full border border-black/20" title="Expand" />
+              {/* Window Content */}
+              <div className="window-content relative isolate px-6 sm:px-12 md:px-16 lg:px-20 py-16 sm:py-24 md:py-28 bg-[#101010b3]">
+                <div aria-hidden="true" className="hero-spotlight" />
+                <div aria-hidden="true" className="hero-orb hero-orb-one" />
+                <div aria-hidden="true" className="hero-orb hero-orb-two" />
+
+                <motion.h1
+                  className="text-hero relative z-10 text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] font-display font-medium tracking-tight leading-[0.92]"
+                  variants={riseIn}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 0.8, delay: 0.23, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  I craft software,
+                  <br />
+                  systems &amp;{' '}
+                  <span className="text-hero-serif">
+                    stories.
+                  </span>
+                </motion.h1>
+
+                {/* Perry Wang two-column about grid */}
+                <div className="hero-about-grid relative z-10 mt-16 sm:mt-24 md:mt-28">
+                  <div className="hidden sm:block" />
+                  <div className="text-right sm:text-right space-y-1">
+                    <p className="text-base sm:text-lg text-[#f2f2f2] font-medium leading-relaxed font-sans">
+                      Software Engineer &amp; CSE Student at Chandigarh University.
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#f2f2f280] font-normal font-sans">
+                      Based in Chandigarh, India.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            {/* Decorative dummy '+' control — fully non-interactive */}
-            <div 
-              aria-hidden="true" 
-              className="ml-auto text-zinc-500/80 select-none pointer-events-none pr-1 flex items-center justify-center"
-            >
-              <svg 
-                className="w-4 h-4 stroke-current stroke-[1.75]" 
-                viewBox="0 0 16 16" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M8 3.5V12.5M3.5 8H12.5" strokeLinecap="round" />
-              </svg>
-            </div>
-          </div>
-
-          {/* Content Area */}
-          <div className="hero-content relative isolate px-6 sm:px-10 md:px-16 lg:px-20 py-16 sm:py-24 md:py-28 bg-gradient-to-b from-[#111114] via-[#09090b] to-[#040404]">
-            {/* Layered, low-opacity lights give the type its halo without affecting readability. */}
-            <div aria-hidden="true" className="hero-spotlight" />
-            <div aria-hidden="true" className="hero-orb hero-orb-one" />
-            <div aria-hidden="true" className="hero-orb hero-orb-two" />
-
-            <motion.h1
-              className="hero-title relative z-10 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter leading-[0.98] text-white"
-              variants={riseIn}
-              initial="hidden"
-              animate="visible"
-              transition={{ duration: 0.8, delay: 0.23, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Full-Stack Developer
-              <br />
-              &{' '}
-              <span className="hero-italic font-serif italic font-normal bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent">
-                problem solver.
-              </span>
-            </motion.h1>
-
-            {/* Right-aligned authentic bio */}
-            <motion.div
-              className="relative z-10 mt-16 sm:mt-20 md:mt-24 text-right space-y-1"
-              variants={riseIn}
-              initial="hidden"
-              animate="visible"
-              transition={{ duration: 0.7, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="text-sm sm:text-base text-zinc-300 font-normal">
-                Software Engineer & CSE Student at Chandigarh University.
-              </p>
-              <p className="text-xs sm:text-sm text-zinc-500">
-                Based in Chandigarh, India.
-              </p>
-            </motion.div>
           </div>
         </motion.div>
 
@@ -136,10 +121,10 @@ export const Home = () => {
         </motion.div>
       </section>
 
-      {/* Projects Section — directly flowing underneath down arrow */}
+      {/* Projects Section — directly flowing underneath down arrow with Perry Wang dual-card */}
       <section id="work" className="px-4 sm:px-6 md:px-12 lg:px-16 pt-4 pb-24 md:pb-32">
         <div className="max-w-5xl mx-auto space-y-12 sm:space-y-16">
-          {PROJECTS.map((project) => (
+          {PROJECTS.map((project, index) => (
             <motion.article
               key={project.title}
               variants={riseIn}
@@ -147,16 +132,21 @@ export const Home = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative rounded-2xl sm:rounded-3xl md:rounded-[28px] border border-zinc-800 bg-[#161619] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]"
+              className="project-card-outline group"
             >
-                {/* Top Header matching reference image */}
-                <div className="flex items-start justify-between gap-4">
+              <div className="glare-item-top outer-edge" />
+              <div className="project-card">
+                <div className="glare-item-top inner-edge" />
+                <div className={`project-card-colour ${index === 0 ? 'blue' : 'purple'}`} />
+
+                {/* Top Header */}
+                <div className="relative z-10 flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-display font-semibold tracking-tight text-white group-hover:text-zinc-100 transition-colors">
+                    <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#f2f2f2] tracking-tight">
                       {project.title}
-                    </h3>
-                    <p className="mt-1.5 text-xs sm:text-sm text-zinc-400 font-sans max-w-2xl leading-relaxed">
-                      <span className="text-zinc-300 font-medium">{project.category || 'Web App'}</span>, '{project.year ? project.year.slice(2) : '26'} — {project.subtitle || project.description}
+                    </h2>
+                    <p className="mt-1.5 text-xs sm:text-sm text-[#f2f2f280] font-sans max-w-2xl leading-relaxed">
+                      <span className="text-[#f2f2f2cc] font-medium">{project.category || 'Web App'}, '{project.year ? project.year.slice(2) : '26'}</span> — {project.subtitle || project.description}
                     </p>
                   </div>
                   <a
@@ -172,7 +162,7 @@ export const Home = () => {
                 </div>
 
                 {/* Browser Mockup interface */}
-                <div className="mt-6 sm:mt-8">
+                <div className="relative z-10 mt-8">
                   <a
                     href={project.live || project.github}
                     target="_blank"
@@ -235,7 +225,8 @@ export const Home = () => {
                     </a>
                   </div>
                 </div>
-              </motion.article>
+              </div>
+            </motion.article>
             ))}
           </div>
       </section>

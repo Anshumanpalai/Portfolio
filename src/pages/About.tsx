@@ -179,19 +179,19 @@ export const About = () => {
   return (
     <div className="min-h-screen text-white">
       {/* Header */}
-      <section className="px-6 md:px-12 lg:px-16 pt-32 pb-16 max-w-5xl mx-auto">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tighter leading-[0.98]">
-          Building software, systems &{' '}
-          <span className="font-serif italic font-normal text-zinc-400">solving problems.</span>
+      <section className="px-6 md:px-12 lg:px-16 pt-36 pb-16 max-w-5xl mx-auto">
+        <h1 className="text-hero text-4xl md:text-6xl lg:text-7xl font-display font-medium tracking-tight leading-[0.94]">
+          Building software, systems &amp;{' '}
+          <span className="text-hero-serif">solving problems.</span>
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
+        <p className="mt-6 text-lg md:text-xl text-[#f2f2f280] max-w-2xl leading-relaxed font-sans">
           I'm Anshuman Palai — a software engineer and CSE student at Chandigarh University,
           passionate about crafting clean web applications and dependable software systems.
         </p>
       </section>
 
       {/* Bio / Background */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-[#f2f2f21a] max-w-5xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">

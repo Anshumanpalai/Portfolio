@@ -30,23 +30,23 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-zinc-900 px-6 md:px-12 lg:px-16 py-16">
+    <footer className="border-t border-[#f2f2f21a] px-6 sm:px-12 md:px-16 py-20 bg-black text-[#f2f2f2]">
       <div className="max-w-5xl mx-auto">
         {/* Top row */}
-        <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-10">
           {/* Left — CTA */}
-          <div>
-            <h2 className="text-2xl md:text-3xl font-display font-semibold tracking-tight text-white">
+          <div className="max-w-md">
+            <h2 className="text-2xl sm:text-3xl font-display font-medium tracking-tight text-[#f2f2f2]">
               Let's build something together.
             </h2>
-            <div className="mt-2 flex items-center gap-2">
+            <div className="mt-3 flex items-center gap-2">
               <a
                 href={`mailto:${email}`}
                 onClick={handleEmailClick}
                 className={`text-sm inline-flex items-center gap-1.5 font-mono transition-all duration-200 cursor-pointer ${
                   copied
                     ? 'text-emerald-400'
-                    : 'text-zinc-400 hover:text-white'
+                    : 'text-[#f2f2f280] hover:text-[#f2f2f2]'
                 }`}
                 title="Click to copy and open Gmail"
               >
@@ -63,33 +63,68 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Right — Social Links */}
-          <div className="flex items-center gap-6">
-            {SOCIAL_LINKS.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-white transition-colors text-sm font-sans"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href={`mailto:${email}`}
-              onClick={handleEmailClick}
-              className="text-zinc-500 hover:text-white transition-colors text-sm font-sans cursor-pointer"
-            >
-              Email {copied ? '✓' : ''}
-            </a>
+          {/* Right — Columns matching Perry Wang 2023 */}
+          <div className="flex items-start gap-12 sm:gap-16">
+            {/* Column 1: Main */}
+            <div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-[#f2f2f280] mb-3">
+                Main
+              </div>
+              <div className="flex flex-col space-y-2 text-sm font-sans">
+                <a href="/" className="text-[#f2f2f280] hover:text-[#f2f2f2] transition-colors">
+                  Work
+                </a>
+                <a href="/about" className="text-[#f2f2f280] hover:text-[#f2f2f2] transition-colors">
+                  Info
+                </a>
+              </div>
+            </div>
+
+            {/* Column 2: Contact */}
+            <div>
+              <div className="text-[10px] font-mono uppercase tracking-widest text-[#f2f2f280] mb-3">
+                Contact
+              </div>
+              <div className="flex flex-col space-y-2 text-sm font-sans">
+                <a
+                  href="https://www.linkedin.com/in/anshuxdev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#f2f2f280] hover:text-[#f2f2f2] transition-colors inline-flex items-center gap-1"
+                >
+                  <span>LinkedIn</span>
+                  <span className="text-xs">↗</span>
+                </a>
+                <a
+                  href="https://github.com/anshumanpalai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#f2f2f280] hover:text-[#f2f2f2] transition-colors inline-flex items-center gap-1"
+                >
+                  <span>GitHub</span>
+                  <span className="text-xs">↗</span>
+                </a>
+                <a
+                  href={`mailto:${email}`}
+                  onClick={handleEmailClick}
+                  className="text-[#f2f2f280] hover:text-[#f2f2f2] transition-colors inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Email {copied ? '✓' : ''}</span>
+                  <span className="text-xs">↗</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom row */}
-        <div className="mt-12 pt-6 border-t border-zinc-900/80 flex justify-between items-center text-xs text-zinc-600 font-mono">
-          <span>© {new Date().getFullYear()} Anshuman Palai</span>
-          <span>Designed with care</span>
+        <div className="mt-16 pt-8 border-t border-[#f2f2f21a] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-[#f2f2f280] font-sans">
+          <div>
+            <span>© {new Date().getFullYear()} Anshuman Palai. All Rights Reserved.</span>
+          </div>
+          <div className="text-[11px] text-zinc-500 font-mono">
+            Designed with care
+          </div>
         </div>
       </div>
     </footer>
