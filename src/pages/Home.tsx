@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { ProjectMockup } from '../components/ProjectMockup';
 import { PROJECTS } from '../data/projectsData';
 
@@ -137,119 +136,127 @@ export const Home = () => {
         </motion.div>
       </section>
 
-      {/* Selected Projects / Work Section */}
+      {/* Projects Section */}
       <section id="work" className="px-4 sm:px-6 md:px-12 lg:px-16 py-20 md:py-32">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <motion.div
-            className="flex items-center justify-between mb-12 md:mb-16"
+            className="mb-12 md:mb-16"
             variants={riseIn}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div>
-              <span className="text-xs sm:text-sm text-zinc-500 uppercase tracking-widest font-mono">
-                Portfolio
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-white mt-1">
-                Featured Projects
-              </h2>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link
-                to="/projects"
-                className="text-xs sm:text-sm text-zinc-400 hover:text-white transition-colors group flex items-center gap-1 font-mono"
-              >
-                <span>View all details</span>
-                <span className="group-hover:translate-x-0.5 transition-transform">→</span>
-              </Link>
-            </div>
+            <span className="text-xs sm:text-sm text-zinc-500 uppercase tracking-widest font-mono">
+              Portfolio
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-white mt-1">
+              Projects
+            </h2>
+            <p className="mt-3 max-w-xl text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
+              A selection of products I’m building at the intersection of thoughtful interfaces and dependable engineering.
+            </p>
           </motion.div>
 
-          <div className="space-y-10 sm:space-y-14">
+          <div className="space-y-12 sm:space-y-16">
             {PROJECTS.map((project) => (
-              <motion.div
+              <motion.article
                 key={project.title}
                 variants={riseIn}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative rounded-2xl sm:rounded-3xl md:rounded-[28px] border border-zinc-800 bg-[#161619] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]"
               >
-                <div className="group relative rounded-2xl sm:rounded-3xl md:rounded-[28px] border border-zinc-800 bg-[#161619] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
-                  {/* Top Header matching reference image */}
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-display font-semibold tracking-tight text-white group-hover:text-zinc-100 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="mt-1.5 text-xs sm:text-sm text-zinc-400 font-sans">
-                        <span className="text-zinc-300 font-medium">{project.category || 'Web App'}</span>, '{project.year ? project.year.slice(2) : '26'} — {project.subtitle || project.description}
-                      </p>
-                    </div>
-                    <a
-                      href={project.live || project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-2xl sm:text-3xl font-light text-zinc-400 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 inline-block"
-                      aria-label={`Open ${project.title}`}
-                      title={project.live ? "Open Live App" : "View Code"}
-                    >
-                      →
-                    </a>
+                {/* Top Header matching reference image */}
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-display font-semibold tracking-tight text-white group-hover:text-zinc-100 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs sm:text-sm text-zinc-400 font-sans max-w-2xl leading-relaxed">
+                      <span className="text-zinc-300 font-medium">{project.category || 'Web App'}</span>, '{project.year ? project.year.slice(2) : '26'} — {project.subtitle || project.description}
+                    </p>
                   </div>
+                  <a
+                    href={project.live || project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl sm:text-3xl font-light text-zinc-400 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 inline-block"
+                    aria-label={`Open ${project.title}`}
+                    title={project.live ? "Open Live App" : "View Code"}
+                  >
+                    →
+                  </a>
+                </div>
 
-                  {/* Browser Mockup interface */}
-                  <div className="mt-6 sm:mt-8">
-                    <a
-                      href={project.live || project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block cursor-pointer"
-                    >
-                      <ProjectMockup type={project.mockup} />
-                    </a>
-                  </div>
+                {/* Browser Mockup interface */}
+                <div className="mt-6 sm:mt-8">
+                  <a
+                    href={project.live || project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block cursor-pointer"
+                  >
+                    <ProjectMockup type={project.mockup} />
+                  </a>
+                </div>
 
-                  {/* Bottom details: tech stack & quick links */}
-                  <div className="mt-6 pt-5 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.stack.slice(0, 6).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-400"
-                        >
-                          {tech}
-                        </span>
+                {/* Architectural Highlights */}
+                {project.highlights && project.highlights.length > 0 && (
+                  <div className="mt-8 pt-6 border-t border-zinc-800/80">
+                    <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500">
+                      Key Engineering Highlights
+                    </span>
+                    <ul className="mt-3 space-y-2 text-xs sm:text-sm text-zinc-300">
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight} className="flex items-start gap-2.5">
+                          <span className="text-indigo-400 text-xs mt-0.5">✦</span>
+                          <span>{highlight}</span>
+                        </li>
                       ))}
-                    </div>
-                    <div className="flex items-center gap-4 text-xs font-mono">
-                      {project.live && (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1 font-medium"
-                        >
-                          <span>Live App</span>
-                          <span>↗</span>
-                        </a>
-                      )}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Bottom details: tech stack & quick links */}
+                <div className="mt-6 pt-5 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-400"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-5 text-xs font-mono">
+                    {project.live && (
                       <a
-                        href={project.github}
+                        href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1"
+                        className="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5 font-medium"
                       >
-                        <span>GitHub</span>
+                        <span>Live Preview</span>
                         <span>↗</span>
                       </a>
-                    </div>
+                    )}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1.5"
+                    >
+                      <span>Source Code</span>
+                      <span>↗</span>
+                    </a>
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
