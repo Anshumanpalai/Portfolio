@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ProjectMockup } from '../components/ProjectMockup';
@@ -10,6 +10,28 @@ const riseIn = {
 };
 
 export const Home = () => {
+  const [copied, setCopied] = useState(false);
+  const email = 'mrgameryt9050@gmail.com';
+
+  const handleContact = () => {
+    // 1. Copy email to clipboard reliably
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).catch(() => {});
+    } else {
+      const textarea = document.createElement('textarea');
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
+
+    // 2. Open default mail client
+    window.location.href = `mailto:${email}`;
+  };
+
   return (
     <div className="relative">
       {/* Ambient bloom — kept outside the window so it softly lifts the page. */}
@@ -202,12 +224,48 @@ export const Home = () => {
           <p className="text-sm sm:text-base text-zinc-400 mt-4 leading-relaxed">
             I'm always interested in building scalable software, learning new tools, and collaborating on meaningful ideas.
           </p>
-          <a
-            href="mailto:mrgameryt9050@gmail.com"
-            className="inline-block mt-8 px-8 py-3.5 rounded-full border border-zinc-700 bg-zinc-900/60 text-sm font-medium text-zinc-200 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all duration-300 shadow-xl"
-          >
-            Get in Touch
-          </a>
+          <div className="flex flex-col items-center">
+            <button
+              type="button"
+              onClick={handleContact}
+              className={`relative inline-flex items-center gap-2 mt-8 px-8 py-3.5 rounded-full border text-sm font-medium transition-all duration-300 shadow-xl cursor-pointer ${
+                copied
+                  ? 'border-emerald-500/60 bg-emerald-950/40 text-emerald-200 shadow-[0_0_25px_rgba(16,185,129,0.2)]'
+                  : 'border-zinc-700 bg-zinc-900/60 text-zinc-200 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white'
+              }`}
+            >
+              {copied ? (
+                <>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Copied to Clipboard!</span>
+                </>
+              ) : (
+                <>
+                  <span>Get in Touch</span>
+                  <span className="text-zinc-500 font-mono text-xs">↗</span>
+                </>
+              )}
+            </button>
+
+            {/* Direct fallback links for seamless accessibility */}
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-zinc-500">
+              <a
+                href={`mailto:${email}`}
+                className="font-mono text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
+              >
+                {email}
+              </a>
+              <span>•</span>
+              <a
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-zinc-300 transition-colors"
+              >
+                Open in Gmail ↗
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>
