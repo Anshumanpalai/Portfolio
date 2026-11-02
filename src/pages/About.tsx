@@ -156,6 +156,26 @@ const skillCategories = [
 ];
 
 export const About = () => {
+  const [copied, setCopied] = useState(false);
+  const email = 'mrgameryt9050@gmail.com';
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).catch(() => {});
+    } else {
+      const textarea = document.createElement('textarea');
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank', 'noopener,noreferrer');
+  };
   return (
     <div className="min-h-screen text-white">
       {/* Header */}
@@ -313,10 +333,22 @@ export const About = () => {
             </p>
             <div>
               <a
-                href="mailto:mrgameryt9050@gmail.com"
-                className="text-lg md:text-xl font-display text-white hover:text-zinc-300 transition-colors inline-block"
+                href={`mailto:${email}`}
+                onClick={handleEmailClick}
+                className={`text-lg md:text-xl font-display transition-colors inline-flex items-center gap-2 cursor-pointer ${
+                  copied ? 'text-emerald-400' : 'text-white hover:text-zinc-300'
+                }`}
+                title="Click to copy and open Gmail"
               >
-                mrgameryt9050@gmail.com ↗
+                <span>{email}</span>
+                <span className="transition-transform duration-200 hover:translate-x-0.5 hover:-translate-y-0.5">
+                  {copied ? '✓' : '↗'}
+                </span>
+                {copied && (
+                  <span className="text-xs font-mono text-emerald-400 font-normal">
+                    (Copied!)
+                  </span>
+                )}
               </a>
             </div>
             <div className="flex flex-wrap gap-6 pt-2">

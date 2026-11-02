@@ -28,8 +28,8 @@ export const Home = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
 
-    // 2. Open default mail client
-    window.location.href = `mailto:${email}`;
+    // 2. Open Gmail compose directly in a new tab
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
