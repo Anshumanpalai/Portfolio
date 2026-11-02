@@ -77,19 +77,19 @@ export const Home = () => {
                 <div aria-hidden="true" className="hero-orb hero-orb-one" />
                 <div aria-hidden="true" className="hero-orb hero-orb-two" />
 
-                {/* Hero Typography — large lightweight modern sans-serif */}
+                {/* Hero Heading — User's Authentic Content & Typography */}
                 <motion.h1
-                  className="text-hero-heading relative z-10 text-5xl sm:text-6xl md:text-7xl lg:text-[5.75rem] xl:text-[6.5rem] font-sans font-normal tracking-[-0.035em] leading-[0.92] text-[#f2f2f2]"
+                  className="hero-title relative z-10 text-5xl sm:text-7xl md:text-8xl lg:text-[6.25rem] xl:text-[7.25rem] font-display font-bold tracking-tighter leading-[0.96] text-white"
                   variants={riseIn}
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 0.8, delay: 0.23, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  I craft products,
+                  Full-Stack Developer
                   <br />
-                  interactions &amp;{' '}
-                  <span className="hero-serif-italic">
-                    stories.
+                  &amp;{' '}
+                  <span className="hero-italic font-serif italic font-normal bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+                    problem solver.
                   </span>
                 </motion.h1>
 
