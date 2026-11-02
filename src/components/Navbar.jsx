@@ -20,10 +20,10 @@ export const Navbar = () => {
       {/* Left — Name & Role */}
       <div className="flex flex-col">
         <NavLink to="/" className="group inline-block">
-          <span className="block font-display text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-zinc-200 transition-colors leading-tight">
+          <span className="block font-display text-base sm:text-lg font-medium tracking-tight text-white group-hover:text-zinc-200 transition-colors leading-tight">
             Anshuman Palai
           </span>
-          <span className="block text-sm sm:text-base text-zinc-400 font-normal tracking-normal leading-tight mt-0.5">
+          <span className="block text-xs text-zinc-400 font-normal tracking-normal leading-tight mt-0.5">
             Software Engineer
           </span>
         </NavLink>

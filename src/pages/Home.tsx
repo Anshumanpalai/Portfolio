@@ -37,7 +37,7 @@ export const Home = () => {
       <div aria-hidden="true" className="hero-page-bloom" />
 
       {/* Hero Section — Iconic macOS / Browser Window */}
-      <section className="min-h-[92vh] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-28 pb-16">
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-28 pb-12">
         <motion.div
           className="hero-window relative max-w-5xl w-full mx-auto rounded-2xl border border-white/25 bg-[#09090b] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.95)] overflow-hidden"
           initial={{ opacity: 0, y: 34, scale: 0.985 }}
@@ -81,7 +81,7 @@ export const Home = () => {
           </div>
 
           {/* Content Area */}
-          <div className="hero-content relative isolate px-6 sm:px-10 md:px-16 lg:px-20 py-14 sm:py-20 md:py-24 bg-gradient-to-b from-[#111114] via-[#09090b] to-[#040404]">
+          <div className="hero-content relative isolate px-6 sm:px-10 md:px-16 lg:px-20 py-16 sm:py-24 md:py-28 bg-gradient-to-b from-[#111114] via-[#09090b] to-[#040404]">
             {/* Layered, low-opacity lights give the type its halo without affecting readability. */}
             <div aria-hidden="true" className="hero-spotlight" />
             <div aria-hidden="true" className="hero-orb hero-orb-one" />
@@ -97,14 +97,14 @@ export const Home = () => {
               Full-Stack Developer
               <br />
               &{' '}
-              <span className="hero-italic font-serif italic font-normal bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+              <span className="hero-italic font-serif italic font-normal bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent">
                 problem solver.
               </span>
             </motion.h1>
 
             {/* Right-aligned authentic bio */}
             <motion.div
-              className="relative z-10 mt-12 sm:mt-16 md:mt-20 text-right space-y-1"
+              className="relative z-10 mt-16 sm:mt-20 md:mt-24 text-right space-y-1"
               variants={riseIn}
               initial="hidden"
               animate="visible"
@@ -117,59 +117,38 @@ export const Home = () => {
                 Based in Chandigarh, India.
               </p>
             </motion.div>
-
-            {/* Centered animated down arrow scrolling to projects */}
-            <motion.div
-              className="relative z-10 mt-14 sm:mt-20 flex justify-center"
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-            >
-              <a
-                href="#work"
-                aria-label="Scroll to projects"
-                className="text-zinc-600 hover:text-zinc-400 transition-colors text-2xl font-light"
-              >
-                ↓
-              </a>
-            </motion.div>
           </div>
+        </motion.div>
+
+        {/* Centered animated down arrow outside the window scrolling to projects */}
+        <motion.div
+          className="relative z-10 mt-10 sm:mt-14 flex justify-center"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+        >
+          <a
+            href="#work"
+            aria-label="Scroll to projects"
+            className="text-zinc-600 hover:text-zinc-400 transition-colors text-2xl font-light"
+          >
+            ↓
+          </a>
         </motion.div>
       </section>
 
-      {/* Projects Section */}
-      <section id="work" className="px-4 sm:px-6 md:px-12 lg:px-16 py-20 md:py-32">
-        <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
-          <motion.div
-            className="mb-12 md:mb-16"
-            variants={riseIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="text-xs sm:text-sm text-zinc-500 uppercase tracking-widest font-mono">
-              Portfolio
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-white mt-1">
-              Projects
-            </h2>
-            <p className="mt-3 max-w-xl text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
-              A selection of products I’m building at the intersection of thoughtful interfaces and dependable engineering.
-            </p>
-          </motion.div>
-
-          <div className="space-y-12 sm:space-y-16">
-            {PROJECTS.map((project) => (
-              <motion.article
-                key={project.title}
-                variants={riseIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-2xl sm:rounded-3xl md:rounded-[28px] border border-zinc-800 bg-[#161619] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]"
-              >
+      {/* Projects Section — directly flowing underneath down arrow */}
+      <section id="work" className="px-4 sm:px-6 md:px-12 lg:px-16 pt-4 pb-24 md:pb-32">
+        <div className="max-w-5xl mx-auto space-y-12 sm:space-y-16">
+          {PROJECTS.map((project) => (
+            <motion.article
+              key={project.title}
+              variants={riseIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative rounded-2xl sm:rounded-3xl md:rounded-[28px] border border-zinc-800 bg-[#161619] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-zinc-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]"
+            >
                 {/* Top Header matching reference image */}
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -259,7 +238,6 @@ export const Home = () => {
               </motion.article>
             ))}
           </div>
-        </div>
       </section>
 
       {/* Bottom Contact CTA */}
