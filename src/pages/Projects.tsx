@@ -6,7 +6,7 @@ import { PROJECTS } from '../data/projectsData';
 export const Projects = () => {
   return (
     <div className="min-h-screen text-white">
-      <section className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-28">
+      <section className="max-w-[1240px] mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-28">
         <motion.span
           className="text-xs text-zinc-500 uppercase tracking-widest font-mono"
           initial={{ opacity: 0, y: 14 }}

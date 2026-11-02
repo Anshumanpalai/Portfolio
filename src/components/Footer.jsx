@@ -31,7 +31,7 @@ export const Footer = () => {
 
   return (
     <footer className="border-t border-[#f2f2f21a] px-6 sm:px-12 md:px-16 py-20 bg-black text-[#f2f2f2]">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-[1240px] w-full mx-auto">
         {/* Top row */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-10">
           {/* Left — CTA */}

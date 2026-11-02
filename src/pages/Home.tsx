@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ProjectMockup } from '../components/ProjectMockup';
 import { PROJECTS } from '../data/projectsData';
@@ -9,37 +9,15 @@ const riseIn = {
 };
 
 export const Home = () => {
-  const [copied, setCopied] = useState(false);
-  const email = 'mrgameryt9050@gmail.com';
-
-  const handleContact = () => {
-    // 1. Copy email to clipboard reliably
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(email).catch(() => {});
-    } else {
-      const textarea = document.createElement('textarea');
-      textarea.value = email;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-    }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
-
-    // 2. Open Gmail compose directly in a new tab
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <div className="relative">
       {/* Ambient bloom — kept outside the window so it softly lifts the page. */}
       <div aria-hidden="true" className="hero-page-bloom" />
 
       {/* Hero Section — Dual-Layer Window Architecture (Perry Wang 2023) */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 pt-28 pb-10">
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-10 lg:px-12 pt-28 pb-10">
         <motion.div
-          className="container-hero-image relative max-w-5xl w-full mx-auto"
+          className="container-hero-image relative max-w-[1240px] w-full mx-auto"
           initial={{ opacity: 0, y: 34, scale: 0.985 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -55,10 +33,10 @@ export const Home = () => {
             <div className="window-main">
               {/* Window Bar Header */}
               <div className="window-bar">
-                <div className="relative flex items-center gap-2 group/dots cursor-pointer">
-                  <span className="window-control window-control-close w-3 h-3 rounded-full border border-black/20" title="Close" />
-                  <span className="window-control window-control-minimize w-3 h-3 rounded-full border border-black/20" title="Minimize" />
-                  <span className="window-control window-control-expand w-3 h-3 rounded-full border border-black/20" title="Expand" />
+                <div className="relative flex items-center gap-2.5 group/dots cursor-pointer">
+                  <span className="window-control window-control-close w-3.5 h-3.5 rounded-full border border-black/20" title="Close" />
+                  <span className="window-control window-control-minimize w-3.5 h-3.5 rounded-full border border-black/20" title="Minimize" />
+                  <span className="window-control window-control-expand w-3.5 h-3.5 rounded-full border border-black/20" title="Expand" />
                 </div>
                 <div className="text-zinc-500 hover:text-zinc-300 transition-colors cursor-default pr-1 flex items-center justify-center select-none">
                   <svg className="w-4 h-4 stroke-current stroke-[1.75]" viewBox="0 0 16 16" fill="none">
@@ -67,14 +45,14 @@ export const Home = () => {
                 </div>
               </div>
 
-              {/* Window Content */}
-              <div className="window-content relative isolate px-6 sm:px-12 md:px-16 lg:px-20 py-16 sm:py-24 md:py-28 bg-[#101010b3]">
+              {/* Window Content — Expansive height and grand typography */}
+              <div className="window-content relative isolate px-8 sm:px-14 md:px-20 lg:px-24 py-20 sm:py-28 md:py-36 min-h-[560px] sm:min-h-[620px] md:min-h-[680px] flex flex-col justify-between bg-[#101010b3]">
                 <div aria-hidden="true" className="hero-spotlight" />
                 <div aria-hidden="true" className="hero-orb hero-orb-one" />
                 <div aria-hidden="true" className="hero-orb hero-orb-two" />
 
                 <motion.h1
-                  className="text-hero relative z-10 text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] font-display font-medium tracking-tight leading-[0.92]"
+                  className="text-hero relative z-10 text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] xl:text-[7.25rem] font-display font-medium tracking-tight leading-[0.92]"
                   variants={riseIn}
                   initial="hidden"
                   animate="visible"
@@ -89,10 +67,10 @@ export const Home = () => {
                 </motion.h1>
 
                 {/* Perry Wang two-column about grid */}
-                <div className="hero-about-grid relative z-10 mt-16 sm:mt-24 md:mt-28">
+                <div className="hero-about-grid relative z-10 grid grid-cols-1 sm:grid-cols-2 items-end mt-20 sm:mt-28 md:mt-36">
                   <div className="hidden sm:block" />
-                  <div className="text-right sm:text-right space-y-1">
-                    <p className="text-base sm:text-lg text-[#f2f2f2] font-medium leading-relaxed font-sans">
+                  <div className="text-right space-y-1.5">
+                    <p className="text-base sm:text-lg md:text-xl text-[#f2f2f2] font-medium leading-relaxed font-sans">
                       Software Engineer &amp; CSE Student at Chandigarh University.
                     </p>
                     <p className="text-xs sm:text-sm text-[#f2f2f280] font-normal font-sans">
@@ -107,7 +85,7 @@ export const Home = () => {
 
         {/* Centered animated down arrow outside the window scrolling to projects */}
         <motion.div
-          className="relative z-10 mt-10 sm:mt-14 flex justify-center"
+          className="relative z-10 mt-12 sm:mt-16 flex justify-center"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
         >
@@ -122,8 +100,8 @@ export const Home = () => {
       </section>
 
       {/* Projects Section — directly flowing underneath down arrow with Perry Wang dual-card */}
-      <section id="work" className="px-4 sm:px-6 md:px-12 lg:px-16 pt-4 pb-24 md:pb-32">
-        <div className="max-w-5xl mx-auto space-y-12 sm:space-y-16">
+      <section id="work" className="px-4 sm:px-6 md:px-10 lg:px-12 pt-4 pb-24 md:pb-32">
+        <div className="max-w-[1240px] w-full mx-auto space-y-16 sm:space-y-24">
           {PROJECTS.map((project, index) => (
             <motion.article
               key={project.title}
@@ -139,30 +117,49 @@ export const Home = () => {
                 <div className="glare-item-top inner-edge" />
                 <div className={`project-card-colour ${index === 0 ? 'blue' : 'purple'}`} />
 
-                {/* Top Header */}
-                <div className="relative z-10 flex items-start justify-between gap-4">
+                {/* Top Header matching Perry Wang Stadia Bluetooth card */}
+                <div className="relative z-10 flex items-start justify-between gap-4 mb-6 sm:mb-8">
                   <div>
-                    <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#f2f2f2] tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-medium text-[#f2f2f2] tracking-tight">
                       {project.title}
                     </h2>
-                    <p className="mt-1.5 text-xs sm:text-sm text-[#f2f2f280] font-sans max-w-2xl leading-relaxed">
-                      <span className="text-[#f2f2f2cc] font-medium">{project.category || 'Web App'}, '{project.year ? project.year.slice(2) : '26'}</span> — {project.subtitle || project.description}
+                    <p className="mt-2 text-sm sm:text-base text-[#f2f2f280] font-sans max-w-3xl leading-relaxed">
+                      <span className="text-[#f2f2f2cc] font-medium">
+                        {project.category || 'Web App'}, '{project.year ? project.year.slice(2) : '26'}
+                      </span>{' '}
+                      — {project.subtitle || project.description}
                     </p>
                   </div>
-                  <a
-                    href={project.live || project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-2xl sm:text-3xl font-light text-zinc-400 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 inline-block"
-                    aria-label={`Open ${project.title}`}
-                    title={project.live ? "Open Live App" : "View Code"}
-                  >
-                    →
-                  </a>
+                  <div className="flex items-center gap-3 shrink-0">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-zinc-500 hover:text-zinc-300 transition-colors p-1"
+                        aria-label={`Source code for ${project.title}`}
+                        title="View Source Code"
+                      >
+                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                      </a>
+                    )}
+                    <a
+                      href={project.live || project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-2xl sm:text-3xl font-light text-zinc-400 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 inline-block p-1"
+                      aria-label={`Open ${project.title}`}
+                      title={project.live ? "Open Live App" : "View Code"}
+                    >
+                      →
+                    </a>
+                  </div>
                 </div>
 
                 {/* Browser Mockup interface */}
-                <div className="relative z-10 mt-8">
+                <div className="relative z-10">
                   <a
                     href={project.live || project.github}
                     target="_blank"
@@ -172,116 +169,9 @@ export const Home = () => {
                     <ProjectMockup type={project.mockup} />
                   </a>
                 </div>
-
-                {/* Architectural Highlights */}
-                {project.highlights && project.highlights.length > 0 && (
-                  <div className="mt-8 pt-6 border-t border-zinc-800/80">
-                    <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500">
-                      Key Engineering Highlights
-                    </span>
-                    <ul className="mt-3 space-y-2 text-xs sm:text-sm text-zinc-300">
-                      {project.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-2.5">
-                          <span className="text-indigo-400 text-xs mt-0.5">✦</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Bottom details: tech stack & quick links */}
-                <div className="mt-6 pt-5 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-400"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-5 text-xs font-mono">
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5 font-medium"
-                      >
-                        <span>Live Preview</span>
-                        <span>↗</span>
-                      </a>
-                    )}
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1.5"
-                    >
-                      <span>Source Code</span>
-                      <span>↗</span>
-                    </a>
-                  </div>
-                </div>
               </div>
             </motion.article>
-            ))}
-          </div>
-      </section>
-
-      {/* Bottom Contact CTA */}
-      <section className="px-4 sm:px-6 md:px-12 lg:px-16 py-24 md:py-32 text-center border-t border-zinc-900">
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-white">
-            Have a project or idea?
-          </h2>
-          <p className="text-sm sm:text-base text-zinc-400 mt-4 leading-relaxed">
-            I'm always interested in building scalable software, learning new tools, and collaborating on meaningful ideas.
-          </p>
-          <div className="flex flex-col items-center">
-            <button
-              type="button"
-              onClick={handleContact}
-              className={`relative inline-flex items-center gap-2 mt-8 px-8 py-3.5 rounded-full border text-sm font-medium transition-all duration-300 shadow-xl cursor-pointer ${
-                copied
-                  ? 'border-emerald-500/60 bg-emerald-950/40 text-emerald-200 shadow-[0_0_25px_rgba(16,185,129,0.2)]'
-                  : 'border-zinc-700 bg-zinc-900/60 text-zinc-200 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white'
-              }`}
-            >
-              {copied ? (
-                <>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Copied to Clipboard!</span>
-                </>
-              ) : (
-                <>
-                  <span>Get in Touch</span>
-                  <span className="text-zinc-500 font-mono text-xs">↗</span>
-                </>
-              )}
-            </button>
-
-            {/* Direct fallback links for seamless accessibility */}
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-zinc-500">
-              <a
-                href={`mailto:${email}`}
-                className="font-mono text-zinc-400 hover:text-white transition-colors underline underline-offset-4"
-              >
-                {email}
-              </a>
-              <span>•</span>
-              <a
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-zinc-300 transition-colors"
-              >
-                Open in Gmail ↗
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>

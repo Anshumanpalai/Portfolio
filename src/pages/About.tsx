@@ -179,7 +179,7 @@ export const About = () => {
   return (
     <div className="min-h-screen text-white">
       {/* Header */}
-      <section className="px-6 md:px-12 lg:px-16 pt-36 pb-16 max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 pt-36 pb-16 max-w-[1240px] mx-auto">
         <h1 className="text-hero text-4xl md:text-6xl lg:text-7xl font-display font-medium tracking-tight leading-[0.94]">
           Building software, systems &amp;{' '}
           <span className="text-hero-serif">solving problems.</span>
@@ -191,7 +191,7 @@ export const About = () => {
       </section>
 
       {/* Bio / Background */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-[#f2f2f21a] max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-[#f2f2f21a] max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">
@@ -216,7 +216,7 @@ export const About = () => {
       </section>
 
       {/* Education */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">
@@ -244,7 +244,7 @@ export const About = () => {
       </section>
 
       {/* Focus & Experience */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">
@@ -273,7 +273,7 @@ export const About = () => {
       </section>
 
       {/* Coding Profiles */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">
@@ -290,7 +290,7 @@ export const About = () => {
       </section>
 
       {/* Technical Skills */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">
@@ -320,7 +320,7 @@ export const About = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-5xl mx-auto">
+      <section className="px-6 md:px-12 lg:px-16 py-12 lg:py-16 border-t border-zinc-900 max-w-[1240px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16">
           <div className="lg:col-span-4">
             <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">
